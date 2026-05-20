@@ -14,7 +14,15 @@ Pour MySQL, les commandes utilisées sont autant du Python que du SQL. Pour le P
 ![Code delete](image-1.png)
 
 ## 2.  Question 2 : Quelles commandes avez-vous utilisées pour effectuer les opérations dans MongoDB ? Avez-vous uniquement utilisé Python ou également du SQL ? Veuillez inclure le code pour illustrer votre réponse.
+Contrairement à MySQL, il n'y a pas de commande intermédiare pour transitionner entre le Python et la commande MongoDB. Cette différence s'observe par l'absence d'une commande comme self.cursor.execute
 
+![Select all command Mongo](image-4.png)
+
+![Insert command Mongo](image-2.png) 
+
+![Update Command Mongo](image-3.png)
+
+![Delete](image-5.png)
 
 ## 3.  Question 3 : Comment avez-vous implémenté votre product_view.py ? Est-ce qu’il importe directement la ProductDAO ? Veuillez inclure le code pour illustrer votre réponse.
 Réponse

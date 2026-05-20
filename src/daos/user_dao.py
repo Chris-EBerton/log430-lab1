@@ -31,6 +31,7 @@ class UserDAO:
         rows = self.cursor.fetchall()
         return [User(*row) for row in rows]
 
+
     def insert(self, user):
         """ Insert given user into MySQL """
         self.cursor.execute(
@@ -55,6 +56,7 @@ class UserDAO:
             (user_id,)
         )
         self.conn.commit()
+
 
     def delete_all(self): # extra
         """ Empty users table in MySQL """
