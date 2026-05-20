@@ -5,9 +5,10 @@ Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
 import os
 from dotenv import load_dotenv
-import mysql.connector
-from models.user import User
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+
+from models.user import User
 
 class UserDAOMongo:
     def init(self):
@@ -45,9 +46,20 @@ class UserDAOMongo:
 
     def select_all(self):
         """ Select all users from MongoDB """
-        rows = self.collection.find({}, {"_id": 0, "id": 1, "name": 1, "email": 1})
-        return [User(row["id"], row["name"], row["email"]) for row in rows]
 
+        users = []
+
+        for doc in self.collection.find():
+
+            user = User(
+                str(doc["_id"]),
+                doc["name"],
+                doc["email"]
+            )
+
+            users.append(user)
+
+        return users
 
     def insert(self, user):
         """ Insert given user into MongoDB """
@@ -78,10 +90,9 @@ class UserDAOMongo:
         )
 
     def delete_all(self): # extra
-        """ Empty users table in MySQL """
-        pass
-        
+        """ Delete all users from MongoDB """
+
+        self.collection.delete_many({})        
 
     def close(self):
-        self.cursor.close()
-        self.conn.close()
+        self.client.close()
