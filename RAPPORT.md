@@ -28,7 +28,9 @@ Contrairement à MySQL, il n'y a pas de commande intermédiare pour transitionne
 Réponse
 
 ##  Question 4 : Si nous devions créer une application permettant d’associer des achats d'articles aux utilisateurs (Users → Products), comment structurerions-nous les données dans MySQL par rapport à MongoDB ?
-Réponse
+Contrairement à MySQL où l'association serait par une table de jointure, l'association avec MongoDB se ferait à l'aide d'imbrications de données.
+![Association achats articles-utilisateurs en MySQL](image-6.png)
+
 
 # Déploiement
 (Le cas échéant, décrivez votre pipeline CI/CD et ce que vous avez appris dans ce laboratoire en ce qui concerne le déploiement. Il est obligatoire d'ajouter du code, des captures d'écran ou des sorties de terminal pour illustrer votre réponse.)

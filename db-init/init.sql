@@ -11,9 +11,15 @@ INSERT INTO users (name, email) VALUES
 ('Adele Goldberg', 'agoldberg@example.com'),
 ('Alan Turing', 'aturing@example.com');
 
-CREATE TABLE IF NOT EXISTS products (
+-- Créer le tableau Products
+CREATE TABLE IF NOT EXISTS Products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(80) NOT NULL,
     brand VARCHAR(20) NOT NULL,
     price DECIMAL(10, 2) NOT NULL
 );
+
+Select users.name, Products.name,Product.brand
+FROM users
+JOIN Products
+ON users.id = Products.id
