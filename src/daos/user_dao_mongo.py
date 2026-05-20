@@ -7,6 +7,7 @@ import os
 from dotenv import load_dotenv
 import mysql.connector
 from models.user import User
+import pymongo
 
 class UserDAO:
     def __init__(self):
@@ -56,10 +57,6 @@ class UserDAO:
         )
         self.conn.commit()
 
-    def delete_all(self): # extra
-        """ Empty users table in MySQL """
-        pass
-        
     def close(self):
         self.cursor.close()
         self.conn.close()
