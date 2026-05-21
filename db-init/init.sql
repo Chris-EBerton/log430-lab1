@@ -23,3 +23,26 @@ Select users.name, Products.name,Product.brand
 FROM users
 JOIN Products
 ON users.id = Products.id
+
+db.modelName.aggregate([
+    {
+        $lookup: {
+            from: "Collection to Join",
+            localField: "Field from the input documents",
+            foreignField: "Field from the documents of the 'from' collection",
+            as: "Pick a field-name as output"
+        }
+    }
+]);
+
+
+db.modelName.aggregate([
+    {
+        $lookup: {
+            from: "users",
+            localField: "name",
+            foreignField: "Field from the documents of the 'from' collection",
+            as: "Pick a field-name as output"
+        }
+    }
+]);

@@ -11,7 +11,7 @@ from bson.objectid import ObjectId
 from models.user import User
 
 class UserDAOMongo:
-    def init(self):
+    def __init__(self):
             try:
                 env_path = ".env"
                 print(os.path.abspath(env_path))
