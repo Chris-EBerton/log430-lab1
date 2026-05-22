@@ -44,7 +44,7 @@ services:
 
 networks:
   labo01-network:
-    external: true
+    external: false
 
 volumes:
   mongo-data:
