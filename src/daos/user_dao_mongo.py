@@ -24,12 +24,6 @@ class UserDAOMongo:
             mongo_user = os.getenv("MONGO_INITDB_ROOT_USERNAME")
             mongo_pass = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
 
-            print("HOST:", repr(mongo_host))
-            print("PORT:", repr(mongo_port))
-            print("DB:", repr(mongo_db))
-            print("USER:", repr(mongo_user))
-            print("PASS:", repr(mongo_pass))
-
             mongo_uri = (
                 f"mongodb://{mongo_user}:{mongo_pass}"
                 f"@{mongo_host}:{mongo_port}/"
