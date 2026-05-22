@@ -17,12 +17,12 @@ class UserDAOMongo:
 
             load_dotenv(dotenv_path=env_path)
 
-            mongo_host = os.getenv("MONGODB_HOST")
+            mongo_host = os.getenv("MONGODB_HOST","mongo" )
             mongo_port = os.getenv("MONGODB_PORT")
-            mongo_db = os.getenv("MONGODB_NAME")
+            mongo_db = os.getenv("MONGODB_NAME", "labo01_db")
 
-            mongo_user = os.getenv("MONGO_INITDB_ROOT_USERNAME")
-            mongo_pass = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
+            mongo_user = os.getenv("MONGO_INITDB_ROOT_USERNAME", "labo01")
+            mongo_pass = os.getenv("MONGO_INITDB_ROOT_PASSWORD", "labo01")
 
             mongo_uri = (
                 f"mongodb://{mongo_user}:{mongo_pass}"
