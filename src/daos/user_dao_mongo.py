@@ -12,24 +12,24 @@ from models.user import User
 
 class UserDAOMongo:
     def __init__(self):
+            env_path = ".env"
+            print(os.path.abspath(env_path))
+
+            load_dotenv(dotenv_path=env_path)
+
+            mongo_host = os.getenv("MONGODB_HOST")
+            mongo_port = os.getenv("MONGODB_PORT")
+            mongo_db = os.getenv("MONGODB_NAME")
+
+            mongo_user = os.getenv("MONGO_INITDB_ROOT_USERNAME")
+            mongo_pass = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
+
+            mongo_uri = (
+                f"mongodb://{mongo_user}:{mongo_pass}"
+                f"@{mongo_host}:{mongo_port}/"
+                f"?authSource=admin"
+            )
             try:
-                env_path = ".env"
-                print(os.path.abspath(env_path))
-
-                load_dotenv(dotenv_path=env_path)
-
-                mongo_host = os.getenv("MONGODB_HOST")
-                mongo_port = os.getenv("MONGODB_PORT")
-                mongo_db = os.getenv("MONGODB_NAME")
-
-                mongo_user = os.getenv("MONGO_INITDB_ROOT_USERNAME")
-                mongo_pass = os.getenv("MONGO_INITDB_ROOT_PASSWORD")
-
-                mongo_uri = (
-                    f"mongodb://{mongo_user}:{mongo_pass}"
-                    f"@{mongo_host}:{mongo_port}/"
-                    f"?authSource=admin"
-                )
 
                 self.client = MongoClient(mongo_uri)
 
@@ -41,8 +41,7 @@ class UserDAOMongo:
                 print("Attention : Veuillez créer un fichier .env")
 
             except Exception as e:
-                print("Erreur : " + str(e))
-
+                raise RuntimeError(f"Mongo init failed: {e}")
 
     def select_all(self):
         """ Select all users from MongoDB """

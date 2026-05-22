@@ -22,7 +22,7 @@ Contrairement à MySQL, il n'y a pas de commande intermédiare pour transitionne
 
 ![Update Command Mongo](image-3.png)
 
-![Delete](image-5.png)
+![Delete  Command Mongo](image-5.png)
 
 ## 3.  Question 3 : Comment avez-vous implémenté votre product_view.py ? Est-ce qu’il importe directement la ProductDAO ? Veuillez inclure le code pour illustrer votre réponse.
 Réponse
