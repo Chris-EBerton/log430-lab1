@@ -19,30 +19,27 @@ CREATE TABLE IF NOT EXISTS Products (
     price DECIMAL(10, 2) NOT NULL
 );
 
+-- Créer des enregistrements dans Products
+INSERT INTO Products (name, brand) VALUES
+('Bag', 'Bentley'),
+('Watch', 'Rolex'),
+('Car', 'Alfa Romeo');
+
 Select users.name, Products.name,Product.brand
 FROM users
 JOIN Products
 ON users.id = Products.id
 
-db.modelName.aggregate([
+-- Agregation en Mongo en commentaire tant que emplacement dans projet non déterminé.
+/*
+db.users.aggregate([
     {
         $lookup: {
-            from: "Collection to Join",
-            localField: "Field from the input documents",
-            foreignField: "Field from the documents of the 'from' collection",
-            as: "Pick a field-name as output"
-        }
-    }
-]);
-
-
-db.modelName.aggregate([
-    {
-        $lookup: {
-            from: "users",
+            from: "Products",
             localField: "name",
-            foreignField: "Field from the documents of the 'from' collection",
-            as: "Pick a field-name as output"
+            foreignField: "name","brand",
+            as: "achat"
         }
     }
 ]);
+*/
