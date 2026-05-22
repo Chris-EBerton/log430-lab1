@@ -15,9 +15,10 @@ jobs:
 
       - name: Create.env file
         run:  |
-          echo "MYSQL_HOST = ${{ secrets.MYSQL_HOST  }}" >> .env 
+          echo "MYSQL_HOST =${{ secrets.MYSQL_HOST  }}" >> .env 
           echo "MONGODB_HOST  =${{  secrets.MONGODB_HOST  }}" >> .env
           echo "MYSQL_DB_NAME =${{  secrets.MYSQL_DB_NAME  }}" >> .env
+          echo "MONGODB_PORT=${{  secrets.MONGODB_PORT  }}" >> .env"
           echo "MONGODB_NAME  =${{  secrets.MONGODB_NAME  }}" >> .env
           echo "DB_USERNAME =${{  secrets.DB_USERNAME  }}" >> .env
           echo "DB_PASSWORD =${{  secrets.DB_PASSWORD  }}" >> .env
